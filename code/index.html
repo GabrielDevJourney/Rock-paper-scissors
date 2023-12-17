@@ -26,7 +26,7 @@
             console.log('It\'s a tie! Let\'s play again');
             return true; 
             
-        } else if (
+        }   else if (
             (playerSelection === "Rock" && computerSelection === "Scissors") ||
             (playerSelection === "Paper" && computerSelection === "Rock") ||
             (playerSelection === "Scissors" && computerSelection === "Paper")
@@ -41,7 +41,7 @@
         let isTie = true;
 
         while (isTie) {
-            const playerSelection = "Rock";
+            const playerSelection = prompt('Enter your choice: Rock, Paper, Scissors.').toLowerCase();
             const computerSelection = getComputerChoice();
             isTie = playRound(playerSelection, computerSelection);
         }
