@@ -6,13 +6,54 @@
     <title>Rock Paper Scissors Game</title>
 </head>
 <body>
+    <!-- criar input do jogar 
+        o input do jogador tem de ser guardado na variavel playerSelection
+        fazer com que o input seja case-insensitive
+    -->
     <script>
-        let optionsArray =  ['rock' , 'paper', 'sciossors'];
+        let optionsArray =  ['Rock' , 'Paper', 'Scissors'];
+
         function getComputerChoice(){
-            console.log(optionsArray[(Math.floor(Math.random() * optionsArray.length))]);
+            return optionsArray[(Math.floor(Math.random() * optionsArray.length))];
         }
-        getComputerChoice();
         
+        function playRound(playerSelection,computerSelection){  
+            //HERE WE JUST LOG THE CHOICES
+            console.log(`Player chose: ${playerSelection}`);
+            console.log(`Computer chose: ${computerSelection}`);
+
+            if (playerSelection === computerSelection) {
+            console.log('It\'s a tie! Let\'s play again');
+            return true; 
+            
+        } else if (
+            (playerSelection === "Rock" && computerSelection === "Scissors") ||
+            (playerSelection === "Paper" && computerSelection === "Rock") ||
+            (playerSelection === "Scissors" && computerSelection === "Paper")
+        ) {
+            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            return false; //this is used so the loop for the playagain doenst happen
+        } else {
+            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            return false; //this is used so the loop for the playagain doenst happen
+        }
+        }
+        let isTie = true;
+
+        while (isTie) {
+            const playerSelection = "Rock";
+            const computerSelection = getComputerChoice();
+            isTie = playRound(playerSelection, computerSelection);
+        }
+
+        //esta vai ter uma variavel computerSelection = getComputerChoice
+        //comparar escolhas e ver quem ganha ou perder 
+        // rock ganha a scissors mas perder contra paper e empata contra ele mesmo
+        //scissors ganha paper e perder contra rock empate contra ele mesmo
+        // paper ganha rock e perde contra scissors empata com ele mesmo
+        //apos isto mostra quem ganha com a message ex 'You lose! paper beats rock'
+        // se empatar re run round
+
     </script>
 </body>
 </html>
