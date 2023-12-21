@@ -1,72 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors Game</title>
-</head>
-<body>
-    <!-- criar input do jogar 
-        o input do jogador tem de ser guardado na variavel playerSelection
-        fazer com que o input seja case-insensitive
-    -->
-    <script>
-        let optionsArray =  ['rock' , 'paper', 'scissors'];
-        let playerScore = 0;
-        let computerScore = 0;
-
-        function getComputerChoice(){
-            return optionsArray[(Math.floor(Math.random() * optionsArray.length))];
-        }
-
-        function playRound(playerSelection,computerSelection){  
-            //HERE WE JUST LOG THE CHOICES
-            console.log(`Player chose: ${playerSelection}`);
-            console.log(`Computer chose: ${computerSelection}`);
-
-            if (playerSelection === computerSelection) {
-            console.log('It\'s a tie! Let\'s play again');
-            return true; 
-            
-        }   else if (
-            (playerSelection === "rock" && computerSelection === "scissors") ||
-            (playerSelection === "raper" && computerSelection === "rock") ||
-            (playerSelection === "scissors" && computerSelection === "paper")
-        ) {
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-            playerScore += 1;
-            return false; //this is used so the loop for the playagain doenst happen
-        } else {
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-            computerScore += 1;
-            return false; //this is used so the loop for the playagain doenst happen
-        }
-        }
-
-        let isTie = true;
-
-        while (isTie) {
-            const playerSelection = prompt('Enter your choice: Rock, Paper, Scissors.').toLowerCase();
-            const computerSelection = getComputerChoice();
-            isTie = playRound(playerSelection, computerSelection);
-        }
-
-
-        function game(){
-            for (let i = 0; i < 5; i++) {
-            const playerSelection = prompt('Enter your choice: Rock, Paper, Scissors.').toLowerCase();
-            const computerSelection = getComputerChoice();
-            playRound(playerSelection,computerSelection);
-        }
-
-            if (playerScore >= 3) {
-                console.log(`You won with ${playerScore} - ${computerScore}`);
-            } else {
-                console.log(`You lost ${playerScore} - ${computerScore} `);
-            }
-        }
-        game();
-
-    </script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Rock Paper Scissors Game</title>
+    </head>
+    <body>
+        <header class="header">
+            <h1 class="title">ROCK PAPER SCISSORS</h1>
+        </header>
+        <main class="main">
+            <div class="scoreboard">
+                <h2 class="score-info">Choose your weapon</h2>
+                <h3 class="score-message">First to score 3 points wins the game</h3>
+                <div class="scores-container">
+                    <div class="score-box">
+                        <div class="weapon"  id="playerWeapon">❔</div>
+                        <p class="score" id="playerScore">Player: 0</p>
+                    </div>
+                    <div class="score-box">
+                        <div class="weapon" id="computerWeapon">❔</div>
+                        <p class="score" id="computerScore">Computer: 0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-square" id="rockBtn">
+                    <div class="sign"><img src="assets/rock.png"></div>
+                </button>
+                <button class="btn btn-square" id="paperBtn">
+                    <div class="sign"><img src="assets/paper.png" alt=""></div>
+                </button>
+                <button class="btn btn-square" id="scissorsBtn">
+                    <div class="sign"><img src="assets/scissors.png" alt=""></div>
+                </button>
+            </div>
+        </main>
+        <!-- <script src="javascript.js"></script> -->
+    </body>
 </html>
