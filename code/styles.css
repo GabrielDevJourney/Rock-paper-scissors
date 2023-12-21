@@ -13,3 +13,69 @@
     margin: 0;
 }
 
+body {
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+  /* footer support */
+    margin-bottom: 100px;
+}
+
+/* HEADER */
+.header{
+    display: flex;
+    justify-content: center;
+    padding: 40px 0px;
+    background-color: var(--header);
+}
+
+.title{
+    font-family: 'Press Start 2P';
+    font-size: 32px;
+    color: var(--header-title);
+}
+
+/* MAIN */
+.main{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.scoreboard{
+    margin-bottom: 20px;
+}
+
+.score-info{
+    font-size: 32px;
+}
+
+.score-message{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.scores-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 400px;
+    padding: 15px;
+    /* auto will help to center both items since we use space-between */
+    margin: 0 auto;
+}
+
+.score-box{
+    width: 170px;
+}
+.score {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.weapon {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
