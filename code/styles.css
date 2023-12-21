@@ -1,0 +1,15 @@
+:root{
+    --header: #111720;
+    --header-title: white;
+    --main-bg: #222831;
+    --text-color: white;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
