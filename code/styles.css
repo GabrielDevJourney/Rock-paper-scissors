@@ -22,6 +22,15 @@ body {
     margin-bottom: 100px;
 }
 
+button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
 /* HEADER */
 .header{
     display: flex;
@@ -78,4 +87,25 @@ body {
 .weapon {
     font-size: 80px;
     margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.btn {
+    border-radius: 10px;
+    background-color: white;
+}
+
+.btn-square {
+    width: 110px;
+    height: 110px;
+}
+
+.btn:hover {
+    background-color: gray;
 }
