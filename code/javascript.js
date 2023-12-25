@@ -33,11 +33,11 @@
       let randomNumber = Math.floor(Math.random() * 3);
         switch (randomNumber) {
             case 0:
-            return "rock";
+            return "ROCK";
             case 1:
-            return "paper";
+            return "PAPER";
             case 2:
-            return "scissors";
+            return "SCISSORS";
         }
     }
 
@@ -59,3 +59,10 @@
     const endgameMsg = document.getElementById("endgameMsg");
     const overlay = document.getElementById("overlay");
     const restartBtn = document.getElementById("restartBtn");
+
+    //CLICK EVENT TO THE BTNS FOR RETURN THE VALUE OF THE CHOICE MADE
+    rockBtn.addEventListener("click", () => handleClick("ROCK"));
+    paperBtn.addEventListener("click", () => handleClick("PAPER"));
+    scissorsBtn.addEventListener("click", () => handleClick("SCISSORS"));
+    restartBtn.addEventListener("click", restartGame);
+    overlay.addEventListener("click", closeEndgameModal);
