@@ -66,3 +66,74 @@
     scissorsBtn.addEventListener("click", () => handleClick("SCISSORS"));
     restartBtn.addEventListener("click", restartGame);
     overlay.addEventListener("click", closeEndgameModal);
+
+    //FUNCTION TO HANLDE IF GAME IS OVER OR NOT
+    function handleClick(playerSelection) {
+        if (isGameOver()) {
+        openEndgameModal();
+        return;
+        }
+
+        const computerSelection = getRandomChoice();
+        playRound(playerSelection, computerSelection);
+        updateChoices(playerSelection, computerSelection);
+        updateScore();
+
+        if (isGameOver()) {
+        openEndgameModal();
+        setFinalMessage();
+        }
+    }
+    
+    //FUNCTION TO SHOW WHAT PLAYERS CHOOSE
+    function updateChoices(playerSelection, computerSelection) {
+        const playerWeapon = document.getElementById('playerWeapon');
+        const computerWeapon = document.getElementById('computerWeapon');
+
+            function createImageElement(src, alt) {
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = alt;
+                return img;
+            }
+
+        switch (playerSelection) {
+        case "ROCK":
+            playerWeapon.innerHTML = '';
+            playerSign.appendChild(
+            createImageElement("assets/rockWhite.png", "Rock")
+            );
+            break;
+        case "PAPER":
+            playerWeapon.innerHTML = "";
+            playerSign.appendChild(
+            createImageElement("assets/paperWhite.png", "Paper")
+            );            break;
+        case "SCISSORS":
+            playerWeapon.innerHTML = "";
+            playerSign.appendChild(
+            createImageElement("assets/scissorsWhite.png", "Scissors")
+            );            break;
+        }
+
+        switch (computerSelection) {
+            case "ROCK":
+            computerWeapon.innerHTML = "";
+            computerWeapon.appendChild(
+            createImageElement("assets/rockWhite.png", "Rock")
+            );
+            break;
+            case "PAPER":
+            computerWeapon.innerHTML = "";
+            computerWeapon.appendChild(
+            createImageElement("assets/paperWhite.png", "Paper")
+            );
+            break;
+            case "SCISSORS":
+            computerWeapon.innerHTML = "";
+            computerWeapon.appendChild(
+            createImageElement("assets/scissorsWhite.png", "Scissors")
+            );
+            break;
+        }
+    }
