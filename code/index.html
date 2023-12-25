@@ -8,6 +8,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link rel="shortcut icon" href="assets/favicon.ico">
+            <script
+        src="https://kit.fontawesome.com/4c536a6bd5.js"
+        crossorigin="anonymous"
+    ></script>
         <title>Rock Paper Scissors Game</title>
     </head>
     <body>
@@ -31,16 +35,40 @@
             </div>
             <div class="buttons">
                 <button class="btn btn-square" id="rockBtn">
-                    <div class="sign"><img src="assets/rock.png"></div>
+                    <div class="sign">
+                        <img src="assets/rock.png">
+                        <img src="assets/rockWhite.png" class="imgHover" alt="image white after hover">
+                    </div>
                 </button>
                 <button class="btn btn-square" id="paperBtn">
-                    <div class="sign"><img src="assets/paper.png" alt=""></div>
+                    <div class="sign">
+                        <img src="assets/paperWhite.png" alt="" class="imgHover">
+                        <img src="assets/paper.png" alt="white paper"></div>
                 </button>
                 <button class="btn btn-square" id="scissorsBtn">
-                    <div class="sign"><img src="assets/scissors.png" alt=""></div>
+                    <div class="sign">
+                        <img src="assets/scissorsWhite.png" alt="white scissors" class="imgHover">
+                        <img src="assets/scissors.png" alt=""></div>
                 </button>
             </div>
         </main>
+        <footer class="footer">
+        <p>
+        Copyright ©
+        <script>
+            document.write(new Date().getFullYear())
+        </script>
+        GabrielDevJourney
+        </p>
+        <a href="https://github.com/GabrielDevJourney" target="_blank">
+        <i class="fab fa-github"></i
+        ></a>
+    </footer>
+    <div class="modal" id="endgameModal">
+        <p class="modal-title" id="endgameMsg"></p>
+        <button class="btn btn-restart" id="restartBtn">Play again</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
         <!-- <script src="javascript.js"></script> -->
     </body>
 </html>
