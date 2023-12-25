@@ -84,7 +84,7 @@
         setFinalMessage();
         }
     }
-    
+
     //FUNCTION TO SHOW WHAT PLAYERS CHOOSE
     function updateChoices(playerSelection, computerSelection) {
         const playerWeapon = document.getElementById('playerWeapon');
@@ -136,4 +136,38 @@
             );
             break;
         }
+    }
+
+    //FUNCTION UPDATE SCORE
+    function updateScore() {
+        if (roundWinner === "tie") {
+        scoreInfo.textContent = "It's a tie!";
+        } else if (roundWinner === "player") {
+        scoreInfo.textContent = "You won!";
+        } else if (roundWinner === "computer") {
+        scoreInfo.textContent = "You lost!";
+        }
+
+        playerScorePara.textContent = `Player: ${playerScore}`;
+        computerScorePara.textContent = `Computer: ${computerScore}`;
+    }
+
+    //FUNCTION TO UPDATE SCORE MESSAGE TO SEE WHO WON THE ROUND
+    function updateScoreMessage(winner, playerSelection, computerSelection) {
+        if (winner === "player") {
+        scoreMessage.textContent = `${capitalizeFirstLetter(
+        playerSelection
+        )} beats ${computerSelection.toLowerCase()}`;
+        return;
+        }
+        if (winner === "computer") {
+        scoreMessage.textContent = `${capitalizeFirstLetter(
+        playerSelection
+        )} is beaten by ${computerSelection.toLowerCase()}`;
+        return;
+        }
+
+        scoreMessage.textContent = `${capitalizeFirstLetter(
+        playerSelection
+        )} ties with ${computerSelection.toLowerCase()}`;
     }
