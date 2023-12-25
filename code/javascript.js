@@ -60,12 +60,20 @@
     const overlay = document.getElementById("overlay");
     const restartBtn = document.getElementById("restartBtn");
 
-    //CLICK EVENT TO THE BTNS FOR RETURN THE VALUE OF THE CHOICE MADE
-    rockBtn.addEventListener("click", () => handleClick("ROCK"));
-    paperBtn.addEventListener("click", () => handleClick("PAPER"));
-    scissorsBtn.addEventListener("click", () => handleClick("SCISSORS"));
+    //CLICK EVENT TO THE BTNS FOR RETURN THE VALUE OF THE CHOICE MAD
     restartBtn.addEventListener("click", restartGame);
     overlay.addEventListener("click", closeEndgameModal);
+    
+    document.addEventListener("click", (handleClick) => {
+        if (handleClick.target.id === "rockBtn") {
+        handleClick("ROCK");
+        } else if (handleClick.target.id === "paperBtn") {
+        handleClick("PAPER");
+        } else if (handleClick.target.id === "scissorsBtn") {
+        handleClick("SCISSORS");
+        }
+
+    });
 
     //FUNCTION TO HANLDE IF GAME IS OVER OR NOT
     function handleClick(playerSelection) {
@@ -99,13 +107,13 @@
 
         switch (playerSelection) {
         case "ROCK":
-            playerWeapon.innerHTML = '';
+            playerWeapon.textContent = '';
             playerWeapon.appendChild(
             createImageElement("assets/rockWhite.png", "Rock")
             );
             break;
         case "PAPER":
-            playerWeapon.innerHTML = "";
+            playerWeapon.textContent = "";
             playerWeapon.appendChild(
             createImageElement("assets/paperWhite.png", "Paper")
             );            break;
@@ -118,7 +126,7 @@
 
         switch (computerSelection) {
             case "ROCK":
-            computerWeapon.innerHTML = "";
+            computerWeapon.textContent = "";
             computerWeapon.appendChild(
             createImageElement("assets/rockWhite.png", "Rock")
             );
