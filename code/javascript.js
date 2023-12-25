@@ -100,18 +100,18 @@
         switch (playerSelection) {
         case "ROCK":
             playerWeapon.innerHTML = '';
-            playerSign.appendChild(
+            playerWeapon.appendChild(
             createImageElement("assets/rockWhite.png", "Rock")
             );
             break;
         case "PAPER":
             playerWeapon.innerHTML = "";
-            playerSign.appendChild(
+            playerWeapon.appendChild(
             createImageElement("assets/paperWhite.png", "Paper")
             );            break;
         case "SCISSORS":
             playerWeapon.innerHTML = "";
-            playerSign.appendChild(
+            playerWeapon.appendChild(
             createImageElement("assets/scissorsWhite.png", "Scissors")
             );            break;
         }
@@ -155,19 +155,51 @@
     //FUNCTION TO UPDATE SCORE MESSAGE TO SEE WHO WON THE ROUND
     function updateScoreMessage(winner, playerSelection, computerSelection) {
         if (winner === "player") {
-        scoreMessage.textContent = `${capitalizeFirstLetter(
-        playerSelection
-        )} beats ${computerSelection.toLowerCase()}`;
+        scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} beats ${computerSelection.toLowerCase()}`;
         return;
         }
         if (winner === "computer") {
-        scoreMessage.textContent = `${capitalizeFirstLetter(
-        playerSelection
-        )} is beaten by ${computerSelection.toLowerCase()}`;
+        scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} is beaten by ${computerSelection.toLowerCase()}`;
         return;
         }
 
-        scoreMessage.textContent = `${capitalizeFirstLetter(
-        playerSelection
-        )} ties with ${computerSelection.toLowerCase()}`;
+        scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} ties with ${computerSelection.toLowerCase()}`;
+    }
+
+    //FUNCTION TO CAPITALIZE FIRST LETTER
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+
+    //FUNCTION TO OPEN MODAL IF GAME ENDEND
+    function openEndgameModal() {
+        endgameModal.classList.add("active");
+        overlay.classList.add("active");
+    }
+
+    //FUNCTION TO CLOSE MODAL 
+    function closeEndgameModal() {
+        endgameModal.classList.remove("active");
+        overlay.classList.remove("active");
+    }
+
+    //FUCNTION TO SAY WHO WON THE GAME
+    function setFinalMessage() {
+        return playerScore > computerScore
+        ? (endgameMsg.textContent = "You won!")
+        : (endgameMsg.textContent = "You lost...");
+    }
+
+    //FUNCTION TO RESTART GAME
+    function restartGame() {
+        playerScore = 0;
+        computerScore = 0;
+        scoreInfo.textContent = "Choose your weapon";
+        scoreMessage.textContent = "First to score 5 points wins the game";
+        playerScorePara.textContent = "Player: 0";
+        computerScorePara.textContent = "Computer: 0";
+        playerSign.textContent = "❔";
+        computerSign.textContent = "❔";
+        endgameModal.classList.remove("active");
+        overlay.classList.remove("active");
     }
