@@ -189,6 +189,12 @@ button {
     padding: 10px 20px;
     margin-top: 25px;
     margin-bottom: 15px;
+    font-weight: bold;
+    color: var(--main-bg);
+}
+
+.btn-restart:hover{
+    color: white;
 }
 
 .overlay {

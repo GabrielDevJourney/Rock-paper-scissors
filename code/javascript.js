@@ -9,13 +9,13 @@
         roundWinner = 'tie';
     }
     if (
-        (playerSelection === "rock" && computerSelection === "scissors") ||
-        (playerSelection === "paper" && computerSelection === "rock") ||
-        (playerSelection === "scissors" && computerSelection === "paper")
+        (playerSelection === "ROCK" && computerSelection === "SCISSORS") ||
+        (playerSelection === "PAPER" && computerSelection === "ROCK") ||
+        (playerSelection === "SCISSORS" && computerSelection === "PAPER")
     ) {
 
-        playerScore++
-        roundWinner = 'player'
+        playerScore++;
+        roundWinner = 'player';
     }
     if (
         (computerSelection === 'ROCK' && playerSelection === 'SCISSORS') ||
@@ -29,6 +29,7 @@
     updateScoreMessage(roundWinner,playerSelection,computerSelection)
     }
 
+    //FUNCTION GENERATE COMPUTER PLAY
     function getRandomChoice() {
       let randomNumber = Math.floor(Math.random() * 3);
         switch (randomNumber) {
@@ -41,7 +42,8 @@
         }
     }
 
-    function gameOver() {
+    //FUNCTION TO SET HOW MANY ROUND NEEDED TO WIN A GAME
+    function isGameOver() {
         return playerScore ===3 || computerScore === 3
     }
 
@@ -63,17 +65,9 @@
     //CLICK EVENT TO THE BTNS FOR RETURN THE VALUE OF THE CHOICE MAD
     restartBtn.addEventListener("click", restartGame);
     overlay.addEventListener("click", closeEndgameModal);
-    
-    document.addEventListener("click", (handleClick) => {
-        if (handleClick.target.id === "rockBtn") {
-        handleClick("ROCK");
-        } else if (handleClick.target.id === "paperBtn") {
-        handleClick("PAPER");
-        } else if (handleClick.target.id === "scissorsBtn") {
-        handleClick("SCISSORS");
-        }
-
-    });
+    rockBtn.addEventListener("click", (event) => handleClick("ROCK"));
+    paperBtn.addEventListener("click", (event) => handleClick("PAPER"));
+    scissorsBtn.addEventListener("click", (event) => handleClick("SCISSORS"));
 
     //FUNCTION TO HANLDE IF GAME IS OVER OR NOT
     function handleClick(playerSelection) {
@@ -163,15 +157,15 @@
     //FUNCTION TO UPDATE SCORE MESSAGE TO SEE WHO WON THE ROUND
     function updateScoreMessage(winner, playerSelection, computerSelection) {
         if (winner === "player") {
-        scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} beats ${computerSelection.toLowerCase()}`;
+        scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} beats ${capitalizeFirstLetter(computerSelection)}`;
         return;
         }
         if (winner === "computer") {
-        scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} is beaten by ${computerSelection.toLowerCase()}`;
+        scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} is beaten by ${capitalizeFirstLetter(computerSelection)}`;
         return;
         }
 
-        scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} ties with ${computerSelection.toLowerCase()}`;
+        scoreMessage.textContent = `${capitalizeFirstLetter(playerSelection)} ties with ${capitalizeFirstLetter(computerSelection)}`;
     }
 
     //FUNCTION TO CAPITALIZE FIRST LETTER
